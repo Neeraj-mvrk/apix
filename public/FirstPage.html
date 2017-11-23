@@ -1,0 +1,47 @@
+
+  <!-- <div> 
+  <input type="text" name="chat" ng-model="chat" placeholder="type text here">
+  <button ng-click = "sendMessage()" >Send</button>
+  
+</div> -->
+<div ng-controller="Sessionctrl">
+        <link  href='./css/main.css ' rel="stylesheet" type="text/css" />
+       <div id="msg_cnt"></div>
+       <div><input type="button" value="Logout" ng-click="logout()" style="float: right;"><h3>Hello {{userName}}!</h3>
+        </div>
+        <div ng-controller = 'ChatCtrl'><a style="float: left;" href = "/chat" ><font color="#080808">Chat with other User</a>
+    </div>
+       <div id="content"></div>
+       <div id="mg_db"></div>
+       <div class="header">
+      <div class="container">
+        <h1>Book End</h1>
+        
+      </div>
+
+
+    <div class="main">
+      <div class="container">
+
+        <h1>{{ title }}</h1><br>
+        <h2>{{ promo }}</h2>
+
+        <div  ng-repeat="product in products" class="col-md-6">
+          <div class="thumbnail">
+            <img ng-src="{{product.cover}}">
+            <p class="title"> {{ product.name|uppercase }} </p>
+            <p class="price"> {{ product.price|currency }} </p>
+            <p class="date">{{product.pubdate|date}} </p>
+            <div class="rating">
+              <p class="likes" ng-click="plusOne($index)">{{product.likes}}</p>
+              <p class="dislikes" ng-click="minusOne($index)">{{product.dislikes}}</p>
+            </div>
+           
+          </div>
+        </div>
+
+      </div>
+    </div>
+ </div>
+
+    

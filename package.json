@@ -1,0 +1,43 @@
+{
+  "name": "loginapi",
+  "version": "1.0.0",
+  "description": "\"login credential\"",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-cookies": "^1.6.6",
+    "bcrypt-nodejs": "0.0.3",
+    "body": "^5.1.0",
+    "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-session": "^1.15.6",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "mongojs": "^2.4.1",
+    "mongoose": "^4.11.9",
+    "morgan": "^1.8.2",
+    "multer": "^1.3.0",
+    "nodemon": "^1.11.0",
+    "parser": "^0.1.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.0.3",
+    "socketio-auth": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "{\"type\":\"git\","
+  },
+  "keywords": [
+    "\"POST\""
+  ],
+  "author": "NN",
+  "license": "ISC"
+}

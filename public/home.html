@@ -1,0 +1,34 @@
+<link  href='./css/style.css ' rel="stylesheet" type="text/css" />
+<div class ="container">
+     <div id = "">
+        <div class ="login-screen">
+         <div class="space-bot text-center">
+         <h1> User Login </h1>
+           <div class="divider"></div>
+         </div>
+
+	      <form name="loginform" class="form-register" ng-submit="submit(loginform.$valid)" novalidate >
+	<div class="input-field col s6">
+	<input id="email" type="email" name="email" ng-model="E_Mail"  calss="validate" required>
+	<label for="email">E-Mail</label>
+	</div>
+	<p class="alert alert-danger" ng-show="loginform.email.$error.email">Your email is invalid.</p>
+	<div  class="input-field col s6">
+	<input id="Password" type="password" name="Password"  ng-model = "Password"  ng-minlength='8' calss="validate" required>
+	<label for="Password">Password</label>
+	 <p class="alert alert-danger" ng-show="loginform.Password.$error.minlength ">Your Password must be 8 Characters.</p>
+   </div>
+	<div class="space-top text-center">
+	<button id="log" type="submit" ng-disabled="loginform.$invalid" class="waves-effect waves-light btn done"><i class="material-icons left">done</i> SignIn
+   </button>
+   <button type="button" class="waves-effect waves-light btn cancel" ng-click = "reset()">
+   <i class="material-icons left">clear</i>Cancel
+   </button>
+   <a href="/signup" class="input-field ">Register here</a>
+   </div>
+
+	</form>
+	</div>
+	</div>
+	</div> 
+	    

@@ -1,0 +1,84 @@
+<!-- <!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Register Form with AngularJS & Material Design</title>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+     
+
+  
+</head> -->
+
+<!-- <body> -->
+<link  href='./css/regstyle.css ' rel="stylesheet" type="text/css" />
+ <div class="container">
+   <div id="">
+      <div class="signup-screen">
+         <div class="space-bot text-center">
+            <h1>Sign up</h1>
+           <div class="divider"></div>
+         </div>
+           <form name="register" class="form-register" ng-controller="RegisterCtrl" ng-submit="submit(register.$valid)"   novalidate>
+              <div class="input-field col s6">
+              <input id="First_Name" type="text" name="First_Name" ng-model="First_Name" class="validate" required >
+              <label for="First_Name">First Name</label>
+            </div>
+
+            <div class="input-field col s6">
+              <input id="Last_Name" type="text" name="Last_Name"  ng-model="Last_Name" class="validate" required  >
+              <label for="Last_Name">Last Name</label>
+             </div>
+
+              <div class="input-field col s6">
+              <input id="Contact_No" type="number" name="Contact_No" ng-pattern="/^[7-9][0-9]{9}$/" ng-model="Contact_No" class="validate" required>
+              <label for="Contact_No">Contact Number</label>
+             </div>
+             <p class="alert alert-danger" ng-show="form-register.Contact_No.$error.minlength || form.Contact_No.$invalid">Your Phone must be a  10 Digit Number.</p>
+
+              <div class="input-field col s6">
+              <input id="email" type="email" name="email"  ng-model="E_Mail" class="validate" required>
+              <label for="email">Email</label>
+             </div>
+             <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid.</p>
+            
+              <div class="input-field col s6">
+              <input id="Password" type="password" name="Password" ng-model="Password" ng-minlength='8' class="validate" required>
+              <label for="Password">Password</label>
+             </div>
+              <p class="alert alert-danger" ng-show="form-register.Password.$error.minlength || form.Password.$invalid">Your Password must must contain 8 character.</p>
+
+             
+         
+             <div class="space-top text-center" >
+               <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done">
+               <i class="material-icons left">done</i> Done
+               </button>
+               <button type="button" class="waves-effect waves-light btn cancel" ng-click = "reset()">
+               <i class="material-icons left">clear</i>Cancel
+               </button>
+               <a href = "/getUser"> user</a>
+               </div>
+               </form>
+              </div>
+        </div>
+        </div>
+        
+<!-- <div ng-view></div>
+ </body>
+    <script src="./js/angular.min.js"></script>
+ <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script> 
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js'></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/route.js"></script>
+
+</body>
+</html> -->
