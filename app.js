@@ -59,16 +59,17 @@ var user = [];
   user.splice(position, 1);
 }*/
 nsp.on('connection', function (socket) {
-	if(typeof socket.handshake.name!='undefined'){
+	/*if(typeof socket.handshake.name!='undefined'){
 		user = {
-			name:socket.query.First_Name,
-			id:socket.query.id,
-			email:socket.query.E_mail
+			name:socket.handshake.query.First_Name,
+			id:socket.handshake.query.id,
+			email:socket.handshake.query.E_mail
 		}
-	}
+		}*/
+	
   socket.on('username',function(userName){
 
-  console.log('SocketId=', socket.id)
+  //console.log('SocketId=', socket.id)
   user.push({
       id:socket.id,
       userName:userName
@@ -76,6 +77,7 @@ nsp.on('connection', function (socket) {
   var len = user.length;
   len--;
   nsp.emit('userList',user,user[len].id);
+  console.log("userList=",user)
 });
    socket.on('getMsg', function(data){
           socket.broadcast.to(data.toid).emit('sendMsg',{
