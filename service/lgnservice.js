@@ -1,19 +1,19 @@
 var User = require('../models/model')
 exports.LoginData=function(body,callback){
-//console.log("body=",body) 
+//console.log("body=",body)
 	var query = {E_Mail:body.E_Mail};
 	User.findOne(query,function(err,data){
 		if(err) {
 			return callback( new err('Error'));
 		}
-		 debugger;
+
 		// console.log('data',data);
 		if(data.Password == body.Password){
-			debugger;
+
 			console.log("Logged In")
            return callback(null,data);
 		}
-		debugger;
+	
 	});
 	};
 exports.addname=function(data,callback){
@@ -26,12 +26,12 @@ exports.addname=function(data,callback){
 exports.records=function(Error,callback){
 	if (Error)
 		return callback(new Error('error'));
-			
+
 	User.find({},function(err,data){
 		if (err)return callback(new Error('docs get error'));
 		return callback(null,data);
 	});
-}; 
+};
 
 exports.session = function(session,cb){
  var query ={_id:session._id};
@@ -45,6 +45,6 @@ exports.session = function(session,cb){
  		var uData = {user:data}
  	 cb(null,uData);
  	// }
- 	
+
  	});
 };

@@ -6,7 +6,7 @@
                 <div class="col-md-4 user-list">
                 <h4>List of Users</h4>
                 <ul class="list-group">
-                    <li  class="list-group-item" 
+                    <li  class="list-group-item"
                         ng-repeat="user in userList"
                         ng-class="{ 'active' : user.id == selectedUser}"
                         ng-click = seletedUser(user.id);
@@ -17,13 +17,13 @@
                         <span id='{{user.id}}' >{{ user.id === socketId ? 'You': user.userName }}</span>
                     </li>
                 </ul>
-                    
+
                 </div>
                 <div class="col-md-8 message-box">
                     <h5>Messages sent by users</h5>
                     <div class="message-container">
                         <ul class="list-group">
-                            <li class="list-group-item" 
+                            <li class="list-group-item"
                                 ng-repeat="message in messages"
                                 >
                                 {{ message.name }} says: {{ message.msg }}
@@ -38,16 +38,16 @@
                           </textarea>
                     </div>
                 </div> -->
-                {{userList}}
+<!--                 {{userList}} -->
                 <div class="chat_box">
     <div class="chat_head"> Chat Box</div>
-    <div class="chat_body"> 
+    <div class="chat_body">
 
     <div class="user"> <ul class="list-group">
-                    <li  class="list-group-item" 
+                    <li  class="list-group-item"
                         ng-repeat="user in userList"
-                        ng-class="{ 'active' : user.id == selectedUser}"
-                        ng-click = seletedUser(user.id);
+                        ng-class="{ 'active' : user == selectedUser}"
+                        ng-click = seletedUser(user);
                         ng-style="{
                             'cursor': user.id === socketId ? 'not-allowed' :'pointer'
                         }"
@@ -59,19 +59,19 @@
   </div>
 
 <div class="msg_box" style="right:290px">
-    <div class="msg_head">{{selectedUser}}
+    <div class="msg_head">{{selectedUser.userName}}
     <div class="close">x</div>
     </div>
     <div class="msg_wrap">
         <div class="msg_body">
            <div class="message-container">
                         <ul class="list-group">
-                            <li class="list-group-item" 
+                            <li class="list-group-item"
                                 ng-repeat="message in messages"
                                 >
                                 {{ message.name }} says: {{ message.msg }}
                             </li>
-                        </ul> </div> 
+                        </ul> </div>
             <div class="msg_push"></div>
         </div>
     <div class="msg_footer"><textarea class="form-control" ng-model='message' ng-keypress="sendMsg($event)"  placeholder="Type your message here...">
@@ -79,10 +79,3 @@
 </div>
 </div>
 
- 
-  
- 
-
- 
-
- 

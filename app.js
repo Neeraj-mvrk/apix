@@ -40,7 +40,7 @@ routes(app);
 app.all('*',function(req,res){
   res.sendfile('public/index.html');
 });
-var server = app.listen(4000);
+var server = app.listen(process.env.PORT || 4000);
 
 
 var io = require('socket.io').listen(server);
@@ -51,7 +51,7 @@ var io = require('socket.io').listen(server);
 });*/
 
 
- var nsp = io.of('/chat'); 
+ var nsp = io.of('/chat');
 
 var user = [];
 /*function deleteFromArray(user, element) {
@@ -66,10 +66,11 @@ nsp.on('connection', function (socket) {
 			email:socket.handshake.query.E_mail
 		}
 		}*/
-	
+
   socket.on('username',function(userName){
 
   //console.log('SocketId=', socket.id)
+  if(userName!=null){
   user.push({
       id:socket.id,
       userName:userName
@@ -78,22 +79,28 @@ nsp.on('connection', function (socket) {
   len--;
   nsp.emit('userList',user,user[len].id);
   console.log("userList=",user)
+  }else {console.log("username is not defined");}
 });
+
    socket.on('getMsg', function(data){
           socket.broadcast.to(data.toid).emit('sendMsg',{
             msg:data.msg,
-            name:data.name
+            name:data.name// for(let i=0; i <= user.length; i++){
+            //
+            //   if(user[i].id === socket.id){
+            //       user.splice(i,1);
+            //   }
+            // }
           });
         });
    socket.on('disconnect',function(){
-          
-            for(let i=0; i < user.length; i++){
-              
+            nsp.emit('exit',user);
+          for(let i=0; i <= user.length; i++){
+
               if(user[i].id === socket.id){
-                  user.splice(i,1); 
+                user.splice(i,1);
               }
             }
-            nsp.emit('exit',user); 
             console.log('user disconnected');
         });
 
@@ -108,17 +115,17 @@ console.log('A user connected');
        nsp.to(user[1]).emit("complete","mongo process done");
         nsp.to(user[2]).emit("complete","mongo process done");
      },4000);*/
-    
+
    /* socket.on('message', function(data) {
       console.log('message ='+data);
       nsp.emit("message",data);
- 
+
    });
 
   socket.on('disconnect', function () {
       console.log('A user disconnected');
       deleteFromArray(clients, socket.id)
-   }); */ 
+   }); */
 });
  /*console.log('client=', clients)*/
 console.log('Listening to port'+ port);

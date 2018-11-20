@@ -1,8 +1,8 @@
 myapp.factory('socket',['$rootScope',function($rootScope) {
-	
-	
+
+
  var socket = io.connect('/chat');
- 
+
     return {
         on: function (eventName, callback) {
             socket.on(eventName, function () {
